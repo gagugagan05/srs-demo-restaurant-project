@@ -1,0 +1,59 @@
+SRS Demo Restaurant — firebase-setup.json
+
+HOW TO IMPORT:
+1. Firebase Console → Realtime Database → Data.
+2. Create the database first.
+3. Use Import JSON / Import data.
+4. Select firebase-setup.json.
+5. Import it at the database ROOT.
+
+IMPORTANT:
+- This file contains DATABASE SEED DATA only.
+- It does NOT contain passwords.
+- It does NOT create Firebase Authentication users.
+- Firebase Authentication users must be created separately under Authentication → Users.
+- After creating the Owner and Staff users, replace:
+    OWNER_UID_REPLACE_ME
+    STAFF_UID_REPLACE_ME
+  with their actual Firebase Authentication UIDs.
+- Do not import passwords into Realtime Database.
+- Menu photoUrl fields are intentionally blank. Upload food photos through the Menu Management page so Firebase Storage generates the correct URLs.
+- The demo order/reservation/customer are seed examples and can be deleted after testing.
+- expenses, revenue and reports are empty intentionally because they are owner-only financial data.
+
+DATABASE ROOT INCLUDED:
+restaurant
+users
+tables (20 tables: T01-T20)
+menu (6 starter food items)
+orders
+reservations
+customers
+staff
+attendance
+inventory
+equipment
+expenses
+revenue
+reports
+notifications
+
+SECURITY:
+Importing this file does NOT configure security rules. Apply the Firebase Database Rules from:
+SRS_Demo_Restaurant_FIREBASE_COMPLETE_SETUP.md
+or the project's firebase/database-rules.json.
+
+AUTHENTICATION:
+Create users manually in Firebase Authentication:
+Owner:
+  email: your chosen owner email
+  password: your chosen strong password
+
+Staff:
+  email: your chosen staff email
+  password: your chosen strong password
+
+Then create their /users/{uid} records using the role fields in this JSON.
+
+PRODUCTION:
+Before using with real customers, tighten staff write permissions and Storage upload/delete permissions. Do not expose private financial data to staff.

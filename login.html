@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SRS Demo Restaurant — Secure Login</title><link rel="stylesheet" href="css/login.css"></head>
+<body>
+<div class="login-shell">
+  <div class="visual"><div class="badge">SRS VISION</div><div class="visual-copy"><small>RESTAURANT MANAGEMENT</small><h1>Run your restaurant<br>with confidence.</h1><p>Secure role-based access for owners and staff.</p></div></div>
+  <div class="login-panel">
+    <div class="brand"><b>S</b><span>SRS DEMO<small>RESTAURANT</small></span></div>
+    <div class="login-card">
+      <div class="eyebrow">SECURE ACCESS</div><h2>Welcome back</h2><p class="muted">Sign in to your restaurant management system.</p>
+      <label>Email<input id="email" type="email" placeholder="you@restaurant.com" autocomplete="username"></label>
+      <label>Password<input id="password" type="password" placeholder="••••••••" autocomplete="current-password"></label>
+      <button id="loginBtn">Sign in securely</button>
+      <p id="message" class="message"></p>
+      <div class="security">🔒 Firebase Authentication · Role-based access</div>
+    </div>
+  </div>
+</div>
+<script type="module" src="js/login.js"></script>
+</body></html>

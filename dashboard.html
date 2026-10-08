@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SRS Demo Restaurant — Management Dashboard</title>
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="chef-logo">♨</div>
+      <div><b>SRS Demo Restaurant</b><small>Good Food · Great Mood</small></div>
+    </div>
+    <nav id="nav"></nav>
+    <div class="sidebar-food">
+      <div class="sidebar-copy">Good Food<br><span>Brings People<br>Together</span> ♥</div>
+      <div class="dish"></div>
+      <div class="restaurant-foot">SRS Demo Restaurant<small>Version 1.0.0</small></div>
+    </div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div class="search"><span>⌕</span><input placeholder="Search anything... (orders, customers, menu, etc.)"><span>⌕</span></div>
+      <div class="top-actions">
+        <button class="icon-btn">♧<i>3</i></button>
+        <div class="profile">
+          <div class="avatar" id="avatar">A</div>
+          <div><b id="userName">Admin</b><small id="roleText">Owner</small></div>
+          <span>⌄</span>
+        </div>
+      </div>
+    </header>
+
+    <section id="content"></section>
+  </main>
+</div>
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

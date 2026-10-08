@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Online Orders — SRS Demo Restaurant</title><link rel="stylesheet" href="css/manager.css"></head>
+<body>
+<div class="wrap"><header><div><b>Online Orders</b><small>Customer orders + owner manually added orders</small></div><a href="dashboard.html">← Dashboard</a></header>
+<section class="card"><h2>Add order manually</h2><div class="form">
+<label>Customer name<input id="customer" placeholder="Customer name"></label>
+<label>Phone<input id="phone" placeholder="+91..."></label>
+<label>Food item<select id="food"></select></label>
+<label>Quantity<input id="qty" type="number" min="1" value="1"></label>
+<label>Order source<select id="source"><option>Online</option><option>Phone</option><option>Walk-in</option><option>WhatsApp</option></select></label>
+<button id="add">Create order</button><p id="msg"></p></div></section>
+<section><h2>Orders</h2><div id="orders"></div></section></div>
+<script type="module" src="js/orders.js"></script>
+</body></html>

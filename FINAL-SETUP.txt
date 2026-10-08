@@ -1,0 +1,29 @@
+SRS DEMO RESTAURANT — FINAL COMPLETE PACKAGE
+
+Included:
+- Premium 1st-dashboard design
+- Firebase Email/Password login
+- Owner / Staff role handling
+- Owner-only financial sections
+- Menu management with food photos
+- Firebase Storage rules
+- Orders management
+- Realtime Database rules
+- Firebase seed data
+- Complete Firebase setup documentation
+
+Firebase project: srs-vision
+
+IMPORTANT:
+1. Enable Email/Password in Firebase Authentication.
+2. Create owner/staff users in Firebase Authentication.
+3. Add /users/<UID> records with role: owner or staff.
+4. Import firebase-setup.json at the Realtime Database root, then replace UID placeholders.
+5. Deploy database-rules.json and storage.rules.
+6. Do not put passwords in firebase-setup.json, GitHub, or frontend code.
+7. For production, tighten Storage upload permissions to owner-only using a trusted backend/custom claims.
+
+Correct Firebase config is already included in js/firebase-config.js.
+
+Suggested GitHub repository name:
+SRS-Demo-Restaurant

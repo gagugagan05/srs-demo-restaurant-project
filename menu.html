@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Menu Management — SRS Demo Restaurant</title><link rel="stylesheet" href="css/manager.css"></head>
+<body>
+<div class="wrap">
+<header><div><b>Menu Management</b><small>Owner can add food, photos, price and availability</small></div><a href="dashboard.html">← Dashboard</a></header>
+<section class="card">
+<h2>Add food item</h2>
+<div class="form">
+<label>Food name<input id="name" placeholder="Paneer Tikka"></label>
+<label>Category<select id="category"><option>Starters</option><option>Main Course</option><option>Rice & Biryani</option><option>Breads</option><option>Desserts</option><option>Beverages</option></select></label>
+<label>Price (₹)<input id="price" type="number" min="0" placeholder="249"></label>
+<label>Description<textarea id="desc" placeholder="Short description"></textarea></label>
+<label>Food photo<input id="photo" type="file" accept="image/*"></label>
+<label class="check"><input id="available" type="checkbox" checked> Available for online orders</label>
+<button id="add">Add food to menu</button>
+<p id="msg"></p>
+</div>
+</section>
+<section><h2>Current menu</h2><div id="menu" class="cards"></div></section>
+</div>
+<script type="module" src="js/menu.js"></script>
+</body></html>
