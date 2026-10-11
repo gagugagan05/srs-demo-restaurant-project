@@ -1,43 +1,23 @@
-# SRS Demo Restaurant — Owner Food + Online Orders
+# SRS Demo Restaurant
 
-This version adds:
-- Owner menu management
-- Add food manually
-- Food name/category/price/description
-- Upload food photos to Firebase Storage
-- Food photo URL saved in Realtime Database
-- Online-order-ready menu
-- Owner can manually create orders
-- Orders show food photo, customer, phone, quantity, source, total and status
-- Dashboard Menu and Orders buttons open the live Firebase modules
+## GitHub Pages entry point
+`index.html` is the restaurant login page. GitHub Pages uses `index.html` at the top level of the publishing source, so opening the site root starts directly at login instead of rendering the repository README.
 
-Firebase setup:
+## Firebase setup
 1. Enable Authentication → Email/Password.
 2. Enable Realtime Database.
 3. Enable Firebase Storage.
 4. Put the exact Firebase web config in `js/firebase-config.js`.
 5. Publish the Realtime Database rules from `firebase/database-rules.json`.
 6. Apply the Storage rules from `firebase/storage.rules`.
+7. Create owner/staff users in Firebase Authentication and add matching `/users/{uid}` records with `role: owner` or `role: staff`.
 
-Important:
-- The included Storage rule is suitable for this prototype but allows any authenticated account to upload an image. For production, use Firebase custom claims or a trusted backend so only owner-role accounts can upload/delete menu photos.
-- Client-side role hiding is not security; Database Rules protect financial paths.
-- Online ordering can be connected to a public customer website later: the customer submits an order to `orders/`, while the owner/staff dashboard receives it in real time.
+## GitHub Pages
+Upload the **contents of this ZIP** to the repository's publishing source so that `index.html` is directly at the root (not inside another folder).
 
+Recommended Pages setting:
+- Source: Deploy from a branch
+- Branch: `main`
+- Folder: `/ (root)`
 
-## Dashboard redesign
-The dashboard has been redesigned to closely follow the supplied 1st reference:
-- dark restaurant-management UI
-- yellow/gold active navigation
-- restaurant hero banner
-- search/header/profile area
-- five KPI cards
-- owner-only revenue KPI/chart
-- order-type donut
-- live orders
-- table map
-- recent activity
-- quick actions
-- responsive mobile bottom navigation
-
-The existing Firebase login, owner/staff permissions, menu photo upload and online/manual order modules are preserved.
+After pushing, GitHub Pages may take several minutes to publish the update.
