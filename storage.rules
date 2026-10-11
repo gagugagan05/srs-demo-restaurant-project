@@ -1,0 +1,13 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /menu/{foodId}/{fileName} {
+      // Temporary development rule: authenticated users can upload/read menu photos.
+      // For production, enforce owner-only uploads with a trusted backend/custom claims.
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+                   && request.resource.size < 5 * 1024 * 1024
+                   && request.resource.contentType.matches('image/.*');
+    }
+  }
+}

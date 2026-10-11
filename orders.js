@@ -1,0 +1,8 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+import { getAuth,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+import { getDatabase,ref,push,set,onValue } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-database.js";
+import { firebaseConfig } from "./firebase-config.js";
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getDatabase(app),$=id=>document.getElementById(id);
+let menu={};
+onAuthStateChanged(auth,u=>{if(!u)location.href="login.html";else{onValue(ref(db,"menu"),s=>{menu=s.val()||{};$("food").innerHTML=Object.entries(menu).filter(([,x])=>x.available).map(([id,x])=>`<option value="${id}">${x.name} — ₹${x.price}</option>`).join("")});onValue(ref(db,"orders"),s=>{const d=s.val()||{};$("orders").innerHTML=Object.entries(d).reverse().map(([id,x])=>{const f=menu[x.itemId]||{};return `<article class="order">${f.photoUrl?`<img src="${f.photoUrl}" alt="">`:''}<div><b>#${id.slice(-6)} · ${x.customerName}</b><div class="muted">${x.phone||""} · ${x.source||"Online"} · Qty ${x.quantity}</div><div class="price">₹${x.total}</div></div><span>${x.status}</span></article>`}).join("")})}});
+$("add").onclick=async()=>{const item=menu[$("food").value];if(!item){$("msg").textContent="Add an available food item first.";return}const qty=Math.max(1,Number($("qty").value)||1),id=push(ref(db,"orders")).key;await set(ref(db,"orders/"+id),{customerName:$("customer").value.trim()||"Walk-in Customer",phone:$("phone").value.trim(),itemId:$("food").value,quantity:qty,total:Number(item.price)*qty,status:"New",source:$("source").value,createdAt:Date.now(),createdBy:auth.currentUser.uid});$("msg").textContent="Order created.";};
